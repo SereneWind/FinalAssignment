@@ -1,6 +1,6 @@
 int mian()
 {
-
+	cout<<"PaoPao!" << endl;
 	cout<<endl;
 	return 0;
 }
