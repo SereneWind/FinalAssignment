@@ -37,10 +37,20 @@ namespace _11
         public Form1()
         {
             InitializeComponent();
+            MouseDown += new MouseEventHandler(Handle_MouseDown);
         }
 
-       
-
+        private void Handle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                Control control = (Control)sender;
+                if (control.Capture)
+                {
+                    control.Capture = false;
+                }
+            }
+        }
 
         int SelectingTile;
 
@@ -87,30 +97,30 @@ namespace _11
 
         private void TestDarray_Click(object sender, EventArgs e)
         {
-                txtBox = new TextBox[n];
-                lbl = new Label[n];
+            txtBox = new TextBox[n];
+            lbl = new Label[n];
 
-                for (int i = 0; i < n; i++)
-                {
-                    txtBox[i] = new TextBox();
-                    txtBox[i].Name = "n" + i;
-                    txtBox[i].Text = "n" + i;
+            for (int i = 0; i < n; i++)
+            {
+                txtBox[i] = new TextBox();
+                txtBox[i].Name = "n" + i;
+                txtBox[i].Text = "n" + i;
 
-                    lbl[i] = new Label();
-                    lbl[i].Name = "n" + i;
-                    lbl[i].Text = "n" + i;
-                }
+                lbl[i] = new Label();
+                lbl[i].Name = "n" + i;
+                lbl[i].Text = "n" + i;
+            }
 
-                for (int i = 0; i < n; i++)
-                {
-                    txtBox[i].Visible = true;
-                    lbl[i].Visible = true;
-                    txtBox[i].Location = new Point(40, 50 + space);
-                    lbl[i].Location = new Point(10, 50 + space);
-                    this.Controls.Add(txtBox[i]);
-                    this.Controls.Add(lbl[i]);
-                    space += 50;
-                }
+            for (int i = 0; i < n; i++)
+            {
+                txtBox[i].Visible = true;
+                lbl[i].Visible = true;
+                txtBox[i].Location = new Point(40, 50 + space);
+                lbl[i].Location = new Point(10, 50 + space);
+                this.Controls.Add(txtBox[i]);
+                this.Controls.Add(lbl[i]);
+                space += 50;
+            }
         }
 
         static int Row = 10;
@@ -122,14 +132,15 @@ namespace _11
         }
 
         int MaxTiles = Row * Column;
-       
+
+        bool isDown = false;
+
+
 
         private void CreateMap_Click(object sender, EventArgs e)
         {
 
             Map = new PictureBox[MaxTiles];
-
-           
 
             for (int i = 0; i < MaxTiles; i++)
             {
@@ -139,10 +150,19 @@ namespace _11
                 Map[i].Width = image.Width; ;
                 Map[i].Height = image.Height;
 
-                Map[i].Click += new EventHandler(ClickTile_click);
+
+                //Map[i].MouseUp += new MouseEventHandler(ClickTile_unclick);
+                //Map[i].MouseDown += new MouseEventHandler(ClickTile_click);
+                Map[i].MouseEnter += new EventHandler(ClickTile_over);
+                // Map[i].MouseMove += new MouseEventHandler(ClickTile_over);
+                Map[i].MouseDown += new MouseEventHandler(Handle_MouseDown_OnMap);
+                // Map[i].CursorChanged += new EventHandler(ClickTile_over);
+               // Map[i].DragOver += new DragEventHandler(ClickTile_over);
+                //Map[i].
+                // Map[i].Mouse += new MouseEventHandler(ClickTile_hover);
             }
 
-            for(int row = 0; row < Row; ++row)
+            for (int row = 0; row < Row; ++row)
             {
                 for (int col = 0; col < Column; col++)
                 {
@@ -151,33 +171,95 @@ namespace _11
                     this.Controls.Add(Map[GetIndex(row, col)]);
                 }
             }
+
+            
         }
 
         PictureBox ClickTile = new PictureBox();
-       // ClickTile += new EventHandler();
+        // ClickTile += new EventHandler();
 
-        private void ClickTile_click(object sender, EventArgs e)
+
+
+        //private void ClickTile_click(object sender, MouseEventArgs e)
+        //{
+        //    isDown = true;
+        //}
+
+
+        private void Handle_MouseDown_OnMap(object sender, MouseEventArgs e)
         {
-            PictureBox Box = (PictureBox)(sender);
-
-            switch (SelectingTile)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                case 1:
-                    Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
-                    break;
+                Control control = (Control)sender;
+                if (control.Capture)
+                {
+                    control.Capture = false;
+                }
 
-                case 2:
-                    Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass.png");
-                    break;
+                PictureBox Box = (PictureBox)(sender);
+                switch (SelectingTile)
+                {
+                    case 1:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
+                        break;
 
-                case 3:
-                    Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
-                    break;
+                    case 2:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass.png");
+                        break;
+
+                    case 3:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
+                        break;
+
+                }
+
+
 
             }
+
+
         }
 
+        private void ClickTile_over(object sender, EventArgs e)
+        {
 
 
+            PictureBox Box = (PictureBox)(sender);
+
+            var buttons = MouseButtons;
+            if (PictureBox.MouseButtons == MouseButtons.Left)
+            {
+                isDown = true;
+            }
+            else { isDown = false; }
+
+            if (isDown)
+            {
+                switch (SelectingTile)
+                {
+                    case 1:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
+                        break;
+
+                    case 2:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass.png");
+                        break;
+
+                    case 3:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
+                        break;
+
+                }
+        }
     }
+
+  
+    }
+    
+    //    private void ClickTile_hover(object sender, MouseEventArgs e)
+    //    {
+            
+
+
+    //}
 }
