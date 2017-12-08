@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< Updated upstream
             this.Button_Stone = new System.Windows.Forms.Button();
             this.Button_Grass_Green = new System.Windows.Forms.Button();
             this.Button_Grass_Brown = new System.Windows.Forms.Button();
-=======
->>>>>>> Stashed changes
             this.CreateMap = new System.Windows.Forms.Button();
             this.Column_Box = new System.Windows.Forms.TextBox();
             this.Row_Box = new System.Windows.Forms.TextBox();
@@ -41,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Save_Button = new System.Windows.Forms.Button();
             this.Load_Button = new System.Windows.Forms.Button();
-<<<<<<< Updated upstream
             this.SuspendLayout();
             // 
             // Button_Stone
@@ -77,7 +73,6 @@
             this.Button_Grass_Brown.UseVisualStyleBackColor = true;
             this.Button_Grass_Brown.Click += new System.EventHandler(this.Button_Grass_Brown_Click);
             // 
-=======
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Button_brick_grail_white = new System.Windows.Forms.Button();
@@ -90,7 +85,6 @@
             this.Button_Stone = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
->>>>>>> Stashed changes
             // CreateMap
             // 
             this.CreateMap.Location = new System.Drawing.Point(49, 378);
@@ -155,8 +149,6 @@
             this.Load_Button.UseVisualStyleBackColor = true;
             this.Load_Button.Click += new System.EventHandler(this.Load_Button_Click);
             // 
-<<<<<<< Updated upstream
-=======
             // label3
             // 
             this.label3.AutoSize = true;
@@ -260,14 +252,11 @@
             this.Button_Stone.UseVisualStyleBackColor = true;
             this.Button_Stone.Click += new System.EventHandler(this.Button_Stone_Click);
             // 
->>>>>>> Stashed changes
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 513);
-<<<<<<< Updated upstream
-=======
             this.Controls.Add(this.Button_brick_grail_white);
             this.Controls.Add(this.Button_brick_grail_orange);
             this.Controls.Add(this.Button_brick_grail_brown);
@@ -275,7 +264,6 @@
             this.Controls.Add(this.Button_brick_blue);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
->>>>>>> Stashed changes
             this.Controls.Add(this.Load_Button);
             this.Controls.Add(this.Save_Button);
             this.Controls.Add(this.label2);
@@ -305,8 +293,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Save_Button;
         private System.Windows.Forms.Button Load_Button;
-<<<<<<< Updated upstream
-=======
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Button_brick_blue;
@@ -314,7 +300,6 @@
         private System.Windows.Forms.Button Button_brick_grail_brown;
         private System.Windows.Forms.Button Button_brick_grail_orange;
         private System.Windows.Forms.Button Button_brick_grail_white;
->>>>>>> Stashed changes
     }
 }
 

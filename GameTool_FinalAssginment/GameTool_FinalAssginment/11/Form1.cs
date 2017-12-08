@@ -89,13 +89,6 @@ namespace _11
         private void Button_Grass_Brown_Click(object sender, EventArgs e)
         {
             SelectingTile = 3;
-<<<<<<< Updated upstream
-        }
-
-
-
-
-=======
 			label3.Text = "Grass_02";
 		}
         private void Button_brick_blue_Click(object sender, EventArgs e)
@@ -128,7 +121,6 @@ namespace _11
             SelectingTile = 8;
             label3.Text = "brick_grail_white";
         }
->>>>>>> Stashed changes
 
         private void TestDarray_Click(object sender, EventArgs e)
         {
@@ -363,8 +355,6 @@ namespace _11
 
             PictureBox Box = (PictureBox)(sender);
 
-<<<<<<< Updated upstream
-=======
             if (Box.BackgroundImage.Tag == "brick_blue")
             {
                 label4.Text = Box.BackgroundImage.Tag.ToString();
@@ -390,7 +380,6 @@ namespace _11
                 label4.Text = Box.BackgroundImage.Tag.ToString();
             }
 
->>>>>>> Stashed changes
             var buttons = MouseButtons;
             if (PictureBox.MouseButtons == MouseButtons.Left)
             {
@@ -412,9 +401,6 @@ namespace _11
 
                     case 3:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
-<<<<<<< Updated upstream
-                        break;
-=======
 						Box.BackgroundImage.Tag = "grass_2";
 						label4.Text = Box.BackgroundImage.Tag.ToString();
 						break;
@@ -467,11 +453,10 @@ namespace _11
 			//		Box.BackgroundImage.Tag = "g";
 			//		label4.Text = Box.BackgroundImage.Tag.ToString();
 			//		break;
->>>>>>> Stashed changes
 
-                }
+            
+        
         }
-    }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -528,8 +513,6 @@ namespace _11
         {
 
         }
-<<<<<<< Updated upstream
-=======
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
@@ -546,8 +529,6 @@ namespace _11
 
 		}
 
-
->>>>>>> Stashed changes
     }
     
     //    private void ClickTile_hover(object sender, MouseEventArgs e)
