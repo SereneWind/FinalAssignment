@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-
+using System.IO;
 
 
 
@@ -123,23 +123,25 @@ namespace _11
             }
         }
 
-        static int Row = 10;
-        static int Column = 10;
+        int Row;
+        int Column;
 
         int GetIndex(int Row, int Col)
         {
             return Row * Column + Col;
         }
 
-        int MaxTiles = Row * Column;
+        //int MaxTiles = Row * Column;
 
         bool isDown = false;
 
-
-
         private void CreateMap_Click(object sender, EventArgs e)
         {
+            CleanPictureBox();
+            Row = Convert.ToInt32(Row_Box.Text);
+            Column = Convert.ToInt32(Column_Box.Text);
 
+            int MaxTiles = Row * Column;
             Map = new PictureBox[MaxTiles];
 
             for (int i = 0; i < MaxTiles; i++)
@@ -157,7 +159,7 @@ namespace _11
                 // Map[i].MouseMove += new MouseEventHandler(ClickTile_over);
                 Map[i].MouseDown += new MouseEventHandler(Handle_MouseDown_OnMap);
                 // Map[i].CursorChanged += new EventHandler(ClickTile_over);
-               // Map[i].DragOver += new DragEventHandler(ClickTile_over);
+                // Map[i].DragOver += new DragEventHandler(ClickTile_over);
                 //Map[i].
                 // Map[i].Mouse += new MouseEventHandler(ClickTile_hover);
             }
@@ -220,6 +222,77 @@ namespace _11
 
         }
 
+        private void CleanPictureBox()
+        {
+            //foreach (System.Windows.Forms.Control control in this.Controls)
+            //{
+            //    if (control is System.Windows.Forms.PictureBox)
+            //    {
+
+            //        System.Windows.Forms.PictureBox picturebox = (System.Windows.Forms.PictureBox)control;
+            //        this.Controls.Remove(picturebox);
+            //    }
+            //}
+
+            foreach (Control ctl in this.Controls) 
+            {
+                if (ctl is PictureBox)//挑选出是按钮类型的
+                {
+                  this.Controls.Remove(ctl);  
+                }
+            }
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is PictureBox)//挑选出是按钮类型的
+                {
+                    this.Controls.Remove(ctl);
+                }
+            }
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is PictureBox)//挑选出是按钮类型的
+                {
+                    this.Controls.Remove(ctl);
+                }
+            }
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is PictureBox)//挑选出是按钮类型的
+                {
+                    this.Controls.Remove(ctl);
+                }
+            }
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is PictureBox)//挑选出是按钮类型的
+                {
+                    this.Controls.Remove(ctl);
+                }
+            }
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is PictureBox)//挑选出是按钮类型的
+                {
+                    this.Controls.Remove(ctl);
+                }
+            }
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is PictureBox)//挑选出是按钮类型的
+                {
+                    this.Controls.Remove(ctl);
+                }
+            }
+
+
+            //foreach (Control con in this.Controls)
+            //{
+            //    if (con.GetType().ToString() == "System.windows.forms.PictureBox")
+            //        this.Controls.Remove((con));
+            //}
+        }
+
+
         private void ClickTile_over(object sender, EventArgs e)
         {
 
@@ -253,7 +326,61 @@ namespace _11
         }
     }
 
-  
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Column_Box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Row_Box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Save_Button_Click(object sender, EventArgs e)
+        {
+            //foreach (Control ctl in this.Controls)
+            //{
+            //    if (ctl is PictureBox)//挑选出是按钮类型的
+            //    {
+            //        SaveFileDialog saveFile = new SaveFileDialog();
+            //        saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            //        DialogResult result = saveFile.ShowDialog();
+
+            //        if (result == DialogResult.OK)
+            //        {
+            //            using (Stream fileStream = saveFile.OpenFile())
+            //            {
+            //                StreamWriter writer = new StreamWriter(fileStream);
+
+            //                if (true)
+            //                {
+            //                    ctl.BackgroundImage == Image."stone.png";
+            //                }
+                            
+
+
+            //                List<string> data = 
+            //                foreach (var line in data)
+            //                {
+            //                    writer.WriteLine(line);
+            //                }
+            //                writer.Close();
+            //            }
+            //        }
+            //    }
+            //}
+        }
+
+        private void Load_Button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
     //    private void ClickTile_hover(object sender, MouseEventArgs e)
