@@ -89,11 +89,46 @@ namespace _11
         private void Button_Grass_Brown_Click(object sender, EventArgs e)
         {
             SelectingTile = 3;
+<<<<<<< Updated upstream
         }
 
 
 
 
+=======
+			label3.Text = "Grass_02";
+		}
+        private void Button_brick_blue_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 4;
+            label3.Text = "brick_blue";
+        }
+
+        private void Button_brick_brown_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 5;
+            label3.Text = "brick_brown";
+        }
+
+        private void Button_brick_grail_brown_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 6;
+            label3.Text = "brick_grail_brown";
+
+        }
+
+        private void Button_brick_grail_orange_Click(object sender, EventArgs e)
+        {
+            SelectingTile =7;
+            label3.Text = "brick_grail_orange";
+        }
+
+        private void Button_brick_grail_white_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 8;
+            label3.Text = "brick_grail_white";
+        }
+>>>>>>> Stashed changes
 
         private void TestDarray_Click(object sender, EventArgs e)
         {
@@ -213,6 +248,35 @@ namespace _11
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
                         break;
 
+                    case 4:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_blue.png");
+                        Box.BackgroundImage.Tag = "brick_blue";
+
+                        break;
+
+                    case 5:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_brown.png");
+                        Box.BackgroundImage.Tag = "brick_brown";
+
+                        break;
+
+                    case 6:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_brown.png");
+                        Box.BackgroundImage.Tag = "brick_grail_brown";
+
+                        break;
+
+                    case 7:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_orange.png");
+                        Box.BackgroundImage.Tag = "brick_grail_orange";
+
+                        break;
+
+                    case 8:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_white.png");
+                        Box.BackgroundImage.Tag = "brick_grail_white";
+
+                        break;
                 }
 
 
@@ -299,6 +363,34 @@ namespace _11
 
             PictureBox Box = (PictureBox)(sender);
 
+<<<<<<< Updated upstream
+=======
+            if (Box.BackgroundImage.Tag == "brick_blue")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+            if (Box.BackgroundImage.Tag == "brick_brown")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+            if (Box.BackgroundImage.Tag == "brick_grail_brown")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+            if (Box.BackgroundImage.Tag == "brick_grail_orange")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+            if (Box.BackgroundImage.Tag == "brick_grail_white")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+>>>>>>> Stashed changes
             var buttons = MouseButtons;
             if (PictureBox.MouseButtons == MouseButtons.Left)
             {
@@ -320,7 +412,62 @@ namespace _11
 
                     case 3:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
+<<<<<<< Updated upstream
                         break;
+=======
+						Box.BackgroundImage.Tag = "grass_2";
+						label4.Text = Box.BackgroundImage.Tag.ToString();
+						break;
+
+                    case 4:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_blue.png");
+                        Box.BackgroundImage.Tag = "brick_blue";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 5:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_brown.png");
+                        Box.BackgroundImage.Tag = "brick_brown";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 6:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_brown.png");
+                        Box.BackgroundImage.Tag = "brick_grail_brown";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 7:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_orange.png");
+                        Box.BackgroundImage.Tag = "brick_grail_orange";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 8:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_white.png");
+                        Box.BackgroundImage.Tag = "brick_grail_white";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                }
+            }
+
+
+
+
+
+			//switch (SelectingTile)
+			//{
+			//	case 1:
+			//		Box.BackgroundImage.Tag = "stone";
+			//		label4.Text = Box.BackgroundImage.Tag.ToString();
+			//		break;
+
+			//	case 2:				
+			//		Box.BackgroundImage.Tag = "g";
+			//		label4.Text = Box.BackgroundImage.Tag.ToString();
+			//		break;
+>>>>>>> Stashed changes
 
                 }
         }
@@ -381,6 +528,26 @@ namespace _11
         {
 
         }
+<<<<<<< Updated upstream
+=======
+
+		private void textBox1_TextChanged(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void label3_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+
+		}
+
+
+>>>>>>> Stashed changes
     }
     
     //    private void ClickTile_hover(object sender, MouseEventArgs e)
