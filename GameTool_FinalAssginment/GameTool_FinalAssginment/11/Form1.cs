@@ -408,51 +408,44 @@ namespace _11
 
 		private void Save_Button_Click(object sender, EventArgs e)
         {
-			//SaveFileDialog saveFile = new SaveFileDialog();
-			//saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-			//DialogResult result = saveFile.ShowDialog();
-			//if (result == DialogResult.OK)
-			//{
-			//	using (Stream fileStream = saveFile.OpenFile())
-			//	{
-			//		StreamWriter writer = new StreamWriter(fileStream);
+			SaveFileDialog saveFile = new SaveFileDialog();
+			saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+			DialogResult result = saveFile.ShowDialog();
+			if (result == DialogResult.OK)
+			{
+				using (Stream fileStream = saveFile.OpenFile())
+				{
+					StreamWriter writer = new StreamWriter(fileStream);
 
-			//		foreach (Control ctl in this.Controls)
-			//		{
+					foreach (Control ctl in this.Controls)
+					{
 
-			//			if (ctl is PictureBox)//挑选出是按钮类型的
-			//			{
-			//				string tiletype = ctl.BackgroundImage.Tag.ToString();
-			//				switch (tiletype)
-			//				{
-			//					case "Stone":
-			//						data.Add(0);
-			//						break;
-			//					default:
-			//						break;
-			//				}
-			//				if ( == "Stone")
-			//				{
-			//					data.Add(0);
-			//				}
-			//				else if (ctl.BackgroundImage.Tag == "Grass")
-			//				{
-			//					data.Add(1);
-			//				}
-			//				else if (ctl.BackgroundImage.Tag == "Grass_02")
-			//				{
-			//					data.Add(2);
-			//				}
-
-			//				for (int i = 0; i < data.Count(); i++)
-			//				{
-			//					writer.Write(data[i]);
-			//				}
-			//				writer.Close();
-			//			}
-			//		}
-			//	}
-			//}
+						if (ctl is PictureBox)//挑选出是按钮类型的
+						{
+							string tiletype = ctl.BackgroundImage.Tag.ToString();
+							switch (tiletype)
+							{
+								case "stone":
+									data.Add(0);
+									break;
+								case "grass":
+									data.Add(1);
+									break;
+								case "grass_2":
+									data.Add(2);
+									break;
+								default:
+									break;
+							}
+						}
+					}
+					for (int i = 0; i < data.Count(); i++)
+					{
+						writer.Write(data[i]);
+					}
+					writer.Close();
+				}
+			}
 		}
 
         private void Load_Button_Click(object sender, EventArgs e)
