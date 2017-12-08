@@ -21,8 +21,9 @@ namespace _11
         //-------------------------------------
         TextBox[] txtBox;
         Label[] lbl;
+		List<int> data=new List<int>();
 
-        int n = 4;
+		int n = 4;
         int space = 20;
         //-------------------------------------
 
@@ -170,6 +171,7 @@ namespace _11
                 // Map[i].DragOver += new DragEventHandler(ClickTile_over);
                 //Map[i].
                 // Map[i].Mouse += new MouseEventHandler(ClickTile_hover);
+				
             }
 
             for (int row = 0; row < Row; ++row)
@@ -238,65 +240,73 @@ namespace _11
 
         private void CleanPictureBox()
         {
-            //foreach (System.Windows.Forms.Control control in this.Controls)
-            //{
-            //    if (control is System.Windows.Forms.PictureBox)
-            //    {
+			if (Map != null)
+			{
+				foreach (var tile in Map)
+				{
+					this.Controls.Remove(tile);
+				}
+			}
 
-            //        System.Windows.Forms.PictureBox picturebox = (System.Windows.Forms.PictureBox)control;
-            //        this.Controls.Remove(picturebox);
+			//foreach (System.Windows.Forms.Control control in this.Controls)
+			//{
+			//    if (control is System.Windows.Forms.PictureBox)
+			//    {
+
+			//        System.Windows.Forms.PictureBox picturebox = (System.Windows.Forms.PictureBox)control;
+			//        this.Controls.Remove(picturebox);
+			//    }
+			//}
+
+			//foreach (Control ctl in this.Controls) 
+   //         {
+   //             if (ctl is PictureBox)//挑选出是按钮类型的
+   //             {
+   //               this.Controls.Remove(ctl);  
+   //             }
+   //         }
+            //foreach (Control ctl in this.Controls)
+            //{
+            //    if (ctl is PictureBox)//挑选出是按钮类型的
+            //    {
+            //        this.Controls.Remove(ctl);
             //    }
             //}
-
-            foreach (Control ctl in this.Controls) 
-            {
-                if (ctl is PictureBox)//挑选出是按钮类型的
-                {
-                  this.Controls.Remove(ctl);  
-                }
-            }
-            foreach (Control ctl in this.Controls)
-            {
-                if (ctl is PictureBox)//挑选出是按钮类型的
-                {
-                    this.Controls.Remove(ctl);
-                }
-            }
-            foreach (Control ctl in this.Controls)
-            {
-                if (ctl is PictureBox)//挑选出是按钮类型的
-                {
-                    this.Controls.Remove(ctl);
-                }
-            }
-            foreach (Control ctl in this.Controls)
-            {
-                if (ctl is PictureBox)//挑选出是按钮类型的
-                {
-                    this.Controls.Remove(ctl);
-                }
-            }
-            foreach (Control ctl in this.Controls)
-            {
-                if (ctl is PictureBox)//挑选出是按钮类型的
-                {
-                    this.Controls.Remove(ctl);
-                }
-            }
-            foreach (Control ctl in this.Controls)
-            {
-                if (ctl is PictureBox)//挑选出是按钮类型的
-                {
-                    this.Controls.Remove(ctl);
-                }
-            }
-            foreach (Control ctl in this.Controls)
-            {
-                if (ctl is PictureBox)//挑选出是按钮类型的
-                {
-                    this.Controls.Remove(ctl);
-                }
-            }
+            //foreach (Control ctl in this.Controls)
+            //{
+            //    if (ctl is PictureBox)//挑选出是按钮类型的
+            //    {
+            //        this.Controls.Remove(ctl);
+            //    }
+            //}
+            //foreach (Control ctl in this.Controls)
+            //{
+            //    if (ctl is PictureBox)//挑选出是按钮类型的
+            //    {
+            //        this.Controls.Remove(ctl);
+            //    }
+            //}
+            //foreach (Control ctl in this.Controls)
+            //{
+            //    if (ctl is PictureBox)//挑选出是按钮类型的
+            //    {
+            //        this.Controls.Remove(ctl);
+            //    }
+            //}
+            //foreach (Control ctl in this.Controls)
+            //{
+            //    if (ctl is PictureBox)//挑选出是按钮类型的
+            //    {
+            //        this.Controls.Remove(ctl);
+            //    }
+            //}
+            //foreach (Control ctl in this.Controls)
+            //{
+            //    if (ctl is PictureBox)//挑选出是按钮类型的
+            //    {
+            //        this.Controls.Remove(ctl);
+            //    }
+            //}
 
 
             //foreach (Control con in this.Controls)
@@ -398,33 +408,45 @@ namespace _11
 
 		private void Save_Button_Click(object sender, EventArgs e)
         {
-			//foreach (Control ctl in this.Controls)
+			//SaveFileDialog saveFile = new SaveFileDialog();
+			//saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+			//DialogResult result = saveFile.ShowDialog();
+			//if (result == DialogResult.OK)
 			//{
-			//	if (ctl is PictureBox)//挑选出是按钮类型的
+			//	using (Stream fileStream = saveFile.OpenFile())
 			//	{
-			//		SaveFileDialog saveFile = new SaveFileDialog();
-			//		saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+			//		StreamWriter writer = new StreamWriter(fileStream);
 
-			//		DialogResult result = saveFile.ShowDialog();
-
-			//		if (result == DialogResult.OK)
+			//		foreach (Control ctl in this.Controls)
 			//		{
-			//			using (Stream fileStream = saveFile.OpenFile())
-			//			{
-			//				StreamWriter writer = new StreamWriter(fileStream);
 
-			//				if (true)
+			//			if (ctl is PictureBox)//挑选出是按钮类型的
+			//			{
+			//				string tiletype = ctl.BackgroundImage.Tag.ToString();
+			//				switch (tiletype)
 			//				{
-			//					ctl.BackgroundImage == file;
+			//					case "Stone":
+			//						data.Add(0);
+			//						break;
+			//					default:
+			//						break;
+			//				}
+			//				if ( == "Stone")
+			//				{
+			//					data.Add(0);
+			//				}
+			//				else if (ctl.BackgroundImage.Tag == "Grass")
+			//				{
+			//					data.Add(1);
+			//				}
+			//				else if (ctl.BackgroundImage.Tag == "Grass_02")
+			//				{
+			//					data.Add(2);
 			//				}
 
-
-
-			//				List<string> data =
-
-			//				foreach (var line in data)
+			//				for (int i = 0; i < data.Count(); i++)
 			//				{
-			//					writer.WriteLine(line);
+			//					writer.Write(data[i]);
 			//				}
 			//				writer.Close();
 			//			}
