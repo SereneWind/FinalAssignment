@@ -22,7 +22,7 @@ namespace _11
         TextBox[] txtBox;
         Label[] lbl;
 		List<int> data=new List<int>();
-
+		List<string> loadData = new List<string>();
 		int n = 4;
         int space = 20;
         //-------------------------------------
@@ -197,7 +197,6 @@ namespace _11
         //    isDown = true;
         //}
 
-
         private void Handle_MouseDown_OnMap(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -248,72 +247,7 @@ namespace _11
 				}
 			}
 
-			//foreach (System.Windows.Forms.Control control in this.Controls)
-			//{
-			//    if (control is System.Windows.Forms.PictureBox)
-			//    {
-
-			//        System.Windows.Forms.PictureBox picturebox = (System.Windows.Forms.PictureBox)control;
-			//        this.Controls.Remove(picturebox);
-			//    }
-			//}
-
-			//foreach (Control ctl in this.Controls) 
-   //         {
-   //             if (ctl is PictureBox)//挑选出是按钮类型的
-   //             {
-   //               this.Controls.Remove(ctl);  
-   //             }
-   //         }
-            //foreach (Control ctl in this.Controls)
-            //{
-            //    if (ctl is PictureBox)//挑选出是按钮类型的
-            //    {
-            //        this.Controls.Remove(ctl);
-            //    }
-            //}
-            //foreach (Control ctl in this.Controls)
-            //{
-            //    if (ctl is PictureBox)//挑选出是按钮类型的
-            //    {
-            //        this.Controls.Remove(ctl);
-            //    }
-            //}
-            //foreach (Control ctl in this.Controls)
-            //{
-            //    if (ctl is PictureBox)//挑选出是按钮类型的
-            //    {
-            //        this.Controls.Remove(ctl);
-            //    }
-            //}
-            //foreach (Control ctl in this.Controls)
-            //{
-            //    if (ctl is PictureBox)//挑选出是按钮类型的
-            //    {
-            //        this.Controls.Remove(ctl);
-            //    }
-            //}
-            //foreach (Control ctl in this.Controls)
-            //{
-            //    if (ctl is PictureBox)//挑选出是按钮类型的
-            //    {
-            //        this.Controls.Remove(ctl);
-            //    }
-            //}
-            //foreach (Control ctl in this.Controls)
-            //{
-            //    if (ctl is PictureBox)//挑选出是按钮类型的
-            //    {
-            //        this.Controls.Remove(ctl);
-            //    }
-            //}
-
-
-            //foreach (Control con in this.Controls)
-            //{
-            //    if (con.GetType().ToString() == "System.windows.forms.PictureBox")
-            //        this.Controls.Remove((con));
-            //}
+			
         }
 
         private void ClickTile_over(object sender, EventArgs e)
@@ -408,6 +342,10 @@ namespace _11
 
 		private void Save_Button_Click(object sender, EventArgs e)
         {
+			int Row = Convert.ToInt32(Row_Box.Text);
+			int Column = Convert.ToInt32(Column_Box.Text);
+			int counter = 0;
+			data.Clear();
 			SaveFileDialog saveFile = new SaveFileDialog();
 			saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
 			DialogResult result = saveFile.ShowDialog();
@@ -439,9 +377,19 @@ namespace _11
 							}
 						}
 					}
+					writer.WriteLine("Row : " + Row);
+					writer.WriteLine("Column : " + Column);
+					writer.WriteLine();
 					for (int i = 0; i < data.Count(); i++)
 					{
 						writer.Write(data[i]);
+						counter++;
+						if (counter==Column)
+						{
+							writer.WriteLine();
+							counter = 0;
+						}
+						
 					}
 					writer.Close();
 				}
@@ -450,8 +398,31 @@ namespace _11
 
         private void Load_Button_Click(object sender, EventArgs e)
         {
+			OpenFileDialog openFile = new OpenFileDialog();
 
-        }
+			openFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+			openFile.FilterIndex = 0;
+
+			DialogResult result = openFile.ShowDialog();
+			if (result == DialogResult.OK)
+			{
+
+				using (Stream fileStream = openFile.OpenFile())
+				{
+					StreamReader reader = new StreamReader(fileStream);
+					string line;
+
+					while ((line = reader.ReadLine()) != null)
+					{
+						loadData.Add(line);
+
+					}
+					reader.Close();
+				}
+				listBox1.DataSource=loadData;
+
+			}
+		}
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
@@ -464,6 +435,11 @@ namespace _11
 		}
 
 		private void label4_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
