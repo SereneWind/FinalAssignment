@@ -54,6 +54,14 @@ namespace _11
 
         int SelectingTile;
 
+		int MouseTile;
+
+
+		private void GetMouseTile()
+		{
+
+		}
+
 
         //public Form1()
         //{
@@ -79,21 +87,20 @@ namespace _11
         private void Button_Stone_Click(object sender, EventArgs e)
         {
             SelectingTile = 1;
-        }
+			label3.Text = "Stone";
+		}
 
         private void Button_Grass_Green_Click(object sender, EventArgs e)
         {
             SelectingTile = 2;
-        }
+			label3.Text = "Grass";
+		}
 
         private void Button_Grass_Brown_Click(object sender, EventArgs e)
         {
             SelectingTile = 3;
-        }
-
-
-
-
+			label3.Text = "Grass_02";
+		}
 
         private void TestDarray_Click(object sender, EventArgs e)
         {
@@ -149,7 +156,8 @@ namespace _11
                 Map[i] = new PictureBox();
                 var image = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
                 Map[i].BackgroundImage = image;
-                Map[i].Width = image.Width; ;
+				Map[i].BackgroundImage.Tag = "stone";
+				Map[i].Width = image.Width; ;
                 Map[i].Height = image.Height;
 
 
@@ -168,7 +176,7 @@ namespace _11
             {
                 for (int col = 0; col < Column; col++)
                 {
-                    Point point = new Point(400 + 32 * col, 50 + 32 * row);
+                    Point point = new Point(200 + 32 * col, 50 + 32 * row);
                     Map[GetIndex(row, col)].Location = point;
                     this.Controls.Add(Map[GetIndex(row, col)]);
                 }
@@ -203,15 +211,21 @@ namespace _11
                 {
                     case 1:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
+						Box.BackgroundImage.Tag = "stone";
+						
                         break;
 
                     case 2:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass.png");
-                        break;
+						Box.BackgroundImage.Tag = "grass";
+						
+						break;
 
                     case 3:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
-                        break;
+						Box.BackgroundImage.Tag = "grass_2";
+						
+						break;
 
                 }
 
@@ -292,39 +306,80 @@ namespace _11
             //}
         }
 
-
         private void ClickTile_over(object sender, EventArgs e)
         {
-
-
             PictureBox Box = (PictureBox)(sender);
 
-            var buttons = MouseButtons;
+			if (Box.BackgroundImage.Tag == "stone")
+			{
+				label4.Text = Box.BackgroundImage.Tag.ToString();
+			}
+
+			if (Box.BackgroundImage.Tag == "grass")
+			{
+				label4.Text = Box.BackgroundImage.Tag.ToString();
+			}
+
+			if (Box.BackgroundImage.Tag == "grass_2")
+			{
+				label4.Text = Box.BackgroundImage.Tag.ToString();
+			}
+
+			var buttons = MouseButtons;
             if (PictureBox.MouseButtons == MouseButtons.Left)
             {
                 isDown = true;
             }
             else { isDown = false; }
 
-            if (isDown)
+
+
+			if (isDown)
             {
                 switch (SelectingTile)
                 {
                     case 1:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
-                        break;
+						Box.BackgroundImage.Tag = "stone";
+						label4.Text = Box.BackgroundImage.Tag.ToString();
+						break;
 
                     case 2:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass.png");
-                        break;
+						Box.BackgroundImage.Tag = "grass";
+						label4.Text = Box.BackgroundImage.Tag.ToString();
+						break;
 
                     case 3:
                         Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
-                        break;
-
+						Box.BackgroundImage.Tag = "grass_2";
+						label4.Text = Box.BackgroundImage.Tag.ToString();
+						break;
                 }
-        }
-    }
+			 }
+
+
+
+
+
+			//switch (SelectingTile)
+			//{
+			//	case 1:
+			//		Box.BackgroundImage.Tag = "stone";
+			//		label4.Text = Box.BackgroundImage.Tag.ToString();
+			//		break;
+
+			//	case 2:				
+			//		Box.BackgroundImage.Tag = "g";
+			//		label4.Text = Box.BackgroundImage.Tag.ToString();
+			//		break;
+
+			//	case 3:
+			//		Box.BackgroundImage.Tag = "g2";
+			//		label4.Text = Box.BackgroundImage.Tag.ToString();
+			//		break;
+			//}
+		}
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -341,47 +396,63 @@ namespace _11
 
         }
 
-        private void Save_Button_Click(object sender, EventArgs e)
+		private void Save_Button_Click(object sender, EventArgs e)
         {
-            //foreach (Control ctl in this.Controls)
-            //{
-            //    if (ctl is PictureBox)//挑选出是按钮类型的
-            //    {
-            //        SaveFileDialog saveFile = new SaveFileDialog();
-            //        saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+			//foreach (Control ctl in this.Controls)
+			//{
+			//	if (ctl is PictureBox)//挑选出是按钮类型的
+			//	{
+			//		SaveFileDialog saveFile = new SaveFileDialog();
+			//		saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
 
-            //        DialogResult result = saveFile.ShowDialog();
+			//		DialogResult result = saveFile.ShowDialog();
 
-            //        if (result == DialogResult.OK)
-            //        {
-            //            using (Stream fileStream = saveFile.OpenFile())
-            //            {
-            //                StreamWriter writer = new StreamWriter(fileStream);
+			//		if (result == DialogResult.OK)
+			//		{
+			//			using (Stream fileStream = saveFile.OpenFile())
+			//			{
+			//				StreamWriter writer = new StreamWriter(fileStream);
 
-            //                if (true)
-            //                {
-            //                    ctl.BackgroundImage == Image."stone.png";
-            //                }
-                            
+			//				if (true)
+			//				{
+			//					ctl.BackgroundImage == file;
+			//				}
 
 
-            //                List<string> data = 
-            //                foreach (var line in data)
-            //                {
-            //                    writer.WriteLine(line);
-            //                }
-            //                writer.Close();
-            //            }
-            //        }
-            //    }
-            //}
-        }
+
+			//				List<string> data =
+
+			//				foreach (var line in data)
+			//				{
+			//					writer.WriteLine(line);
+			//				}
+			//				writer.Close();
+			//			}
+			//		}
+			//	}
+			//}
+		}
 
         private void Load_Button_Click(object sender, EventArgs e)
         {
 
         }
-    }
+
+		private void textBox1_TextChanged(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void label3_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
     
     //    private void ClickTile_hover(object sender, MouseEventArgs e)
     //    {
