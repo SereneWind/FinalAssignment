@@ -132,5 +132,32 @@
   <ItemGroup>
     <None Include="Resources\stone.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\brick_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\brick_brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\brick_grail_brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\brick_grail_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\brick_grail_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\brick_grail_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\stairs_brown1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\stairs_brown2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\stairs_brown3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

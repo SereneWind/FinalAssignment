@@ -21,7 +21,7 @@ namespace _11
         //-------------------------------------
         TextBox[] txtBox;
         Label[] lbl;
-		List<int> data=new List<int>();
+		List<char> data=new List<char>();
 		
 		List<string> loadData = new List<string>();
 
@@ -57,7 +57,7 @@ namespace _11
 
         int SelectingTile;
 
-		int MouseTile;
+		//int MouseTile;
 
 
 		private void GetMouseTile()
@@ -104,6 +104,59 @@ namespace _11
             SelectingTile = 3;
 			label3.Text = "Grass_02";
 		}
+        private void Button_brick_blue_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 4;
+            label3.Text = "brick_blue";
+        }
+
+        private void Button_brick_brown_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 5;
+            label3.Text = "brick_brown";
+        }
+
+        private void Button_brick_grail_brown_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 6;
+            label3.Text = "brick_grail_brown";
+        }
+
+        private void Button_brick_grail_orange_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 7;
+            label3.Text = "brick_grail_orange";
+        }
+
+        private void Button_brick_grail_white_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 8;
+            label3.Text = "brick_grail_white";
+        }
+
+        private void Button_brick_grail_yellow_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 9;
+            label3.Text = "brick_grail_yellow";
+        }
+
+        private void Button_stairs_brown1_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 10;
+            label3.Text = "stairs_brown1";
+        }
+
+        private void Button_stairs_brown2_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 11;
+            label3.Text = "stairs_brown2";
+        }
+
+        private void Button_stairs_brown3_Click(object sender, EventArgs e)
+        {
+            SelectingTile = 12;
+            label3.Text = "stairs_brown3";
+        }
 
         private void TestDarray_Click(object sender, EventArgs e)
         {
@@ -229,7 +282,59 @@ namespace _11
 						Box.BackgroundImage.Tag = "grass_2";
 						
 						break;
+                    case 4:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_blue.png");
+                        Box.BackgroundImage.Tag = "brick_blue";
 
+                        break;
+
+                    case 5:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_brown.png");
+                        Box.BackgroundImage.Tag = "brick_brown";
+
+                        break;
+
+                    case 6:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_brown.png");
+                        Box.BackgroundImage.Tag = "brick_grail_brown";
+
+                        break;
+
+                    case 7:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_orange.png");
+                        Box.BackgroundImage.Tag = "brick_grail_orange";
+
+                        break;
+
+                    case 8:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_white.png");
+                        Box.BackgroundImage.Tag = "brick_grail_white";
+
+                        break;
+
+                    case 9:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_yellow.png");
+                        Box.BackgroundImage.Tag = "brick_grail_yellow";
+
+                        break;
+
+                    case 10:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown1.png");
+                        Box.BackgroundImage.Tag = "stairs_brown1";
+
+                        break;
+
+                    case 11:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown2.png");
+                        Box.BackgroundImage.Tag = "stairs_brown2";
+
+                        break;
+
+                    case 12:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown3.png");
+                        Box.BackgroundImage.Tag = "stairs_brown3";
+
+                        break;
                 }
 
 
@@ -270,8 +375,49 @@ namespace _11
 			{
 				label4.Text = Box.BackgroundImage.Tag.ToString();
 			}
+            if (Box.BackgroundImage.Tag == "brick_blue")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+            if (Box.BackgroundImage.Tag == "brick_brown")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
 
-			var buttons = MouseButtons;
+            if (Box.BackgroundImage.Tag == "brick_grail_brown")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+
+            if (Box.BackgroundImage.Tag == "brick_grail_orange")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+            if (Box.BackgroundImage.Tag == "brick_grail_white")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+            if (Box.BackgroundImage.Tag == "brick_grail_yellow")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+            if (Box.BackgroundImage.Tag == "stairs_brown1")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+            if (Box.BackgroundImage.Tag == "stairs_brown2")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+            if (Box.BackgroundImage.Tag == "stairs_brown3")
+            {
+                label4.Text = Box.BackgroundImage.Tag.ToString();
+            }
+
+            var buttons = MouseButtons;
             if (PictureBox.MouseButtons == MouseButtons.Left)
             {
                 isDown = true;
@@ -301,8 +447,61 @@ namespace _11
 						Box.BackgroundImage.Tag = "grass_2";
 						label4.Text = Box.BackgroundImage.Tag.ToString();
 						break;
+                    case 4:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_blue.png");
+                        Box.BackgroundImage.Tag = "brick_blue";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 5:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_brown.png");
+                        Box.BackgroundImage.Tag = "brick_brown";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+                    case 6:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_brown.png");
+                        Box.BackgroundImage.Tag = "brick_grail_brown";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 7:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_orange.png");
+                        Box.BackgroundImage.Tag = "brick_grail_orange";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 8:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_white.png");
+                        Box.BackgroundImage.Tag = "brick_grail_white";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 9:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_yellow.png");
+                        Box.BackgroundImage.Tag = "brick_grail_yellow";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 10:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown1.png");
+                        Box.BackgroundImage.Tag = "stairs_brown1";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 11:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown2.png");
+                        Box.BackgroundImage.Tag = "stairs_brown2";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
+                    case 12:
+                        Box.BackgroundImage = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown3.png");
+                        Box.BackgroundImage.Tag = "stairs_brown3";
+                        label4.Text = Box.BackgroundImage.Tag.ToString();
+                        break;
+
                 }
-			 }
+            }
 
 
 
@@ -366,15 +565,43 @@ namespace _11
 							switch (tiletype)
 							{
 								case "stone":
-									data.Add(0);
+									data.Add('0');
 									break;
 								case "grass":
-									data.Add(1);
+									data.Add('1');
 									break;
 								case "grass_2":
-									data.Add(2);
+									data.Add('2');
 									break;
-								default:
+                                case "brick_blue":
+                                    data.Add('3');
+                                    break;
+                                case "brick_brown":
+                                    data.Add('4');
+                                    break;
+                                case "brick_grail_brown":
+                                    data.Add('5');
+                                    break;
+                                case "brick_grail_orange":
+                                    data.Add('6');
+                                    break;
+                                case "brick_grail_white":
+                                    data.Add('7');
+                                    break;
+                                case "brick_grail_yellow":
+                                    data.Add('8');
+                                    break;
+                                case "stairs_brown1":
+                                    data.Add('9');
+                                    break;
+                                case "stairs_brown2":
+                                    data.Add('A');
+                                    break;
+                                case "stairs_brown3":
+                                    data.Add('B');
+                                    break;
+
+                                default:
 									break;
 							}
 						}
@@ -440,7 +667,7 @@ namespace _11
 				{
 					foreach (char TileNumber in loadData[i])
 					{
-						DataLoad.Add(Convert.ToInt32(TileNumber));
+						DataLoad.Add(TileNumber);
 					}
 				}
 
@@ -452,12 +679,25 @@ namespace _11
 					
 					Map[i] = new PictureBox();
 					Map[i].MouseEnter += new EventHandler(ClickTile_over);
+
 					Map[i].MouseDown += new MouseEventHandler(Handle_MouseDown_OnMap);
+                    //-----------------------------------------------------------------------------------------
 					var image0 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
 					var image1 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass.png");
 					var image2 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
+                    var image3 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_blue.png");
+                    var image4 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_brown.png");
+                    var image5 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_brown.png");
+                    var image6 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_orange.png");
+                    var image7 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_white.png");
+                    var image8 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "brick_grail_yellow.png");
+                    var image9 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown1.png");
+                    var image10 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown2.png");
+                    var image11 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stairs_brown3.png");
 
-					switch (DataLoad[j])
+                    //-----------------------------------------------------------------------------------------
+
+                    switch (DataLoad[j])
 					{
 						case '0':
 							Map[i].BackgroundImage = image0;
@@ -479,7 +719,62 @@ namespace _11
 							Map[i].Height = image2.Height;
 							Map[i].BackgroundImage.Tag = "grass_2";
 							break;
-					}
+                        case '3':
+                            Map[i].BackgroundImage = image3;
+                            Map[i].Width = image3.Width; ;
+                            Map[i].Height = image3.Height;
+                            Map[i].BackgroundImage.Tag = "brick_blue";
+                            break;
+                        case '4':
+                            Map[i].BackgroundImage = image4;
+                            Map[i].Width = image4.Width; ;
+                            Map[i].Height = image4.Height;
+                            Map[i].BackgroundImage.Tag = "brick_brown";
+                            break;
+                        case '5':
+                            Map[i].BackgroundImage = image5;
+                            Map[i].Width = image5.Width; ;
+                            Map[i].Height = image5.Height;
+                            Map[i].BackgroundImage.Tag = "brick_grail_brown";
+                            break;
+                        case '6':
+                            Map[i].BackgroundImage = image6;
+                            Map[i].Width = image6.Width; ;
+                            Map[i].Height = image6.Height;
+                            Map[i].BackgroundImage.Tag = "brick_grail_orange";
+                            break;
+                        case '7':
+                            Map[i].BackgroundImage = image7;
+                            Map[i].Width = image7.Width; ;
+                            Map[i].Height = image7.Height;
+                            Map[i].BackgroundImage.Tag = "brick_grail_white";
+                            break;
+                        case '8':
+                            Map[i].BackgroundImage = image8;
+                            Map[i].Width = image8.Width; ;
+                            Map[i].Height = image8.Height;
+                            Map[i].BackgroundImage.Tag = "brick_grail_yellow";
+                            break;
+                        case '9':
+                            Map[i].BackgroundImage = image9;
+                            Map[i].Width = image9.Width; ;
+                            Map[i].Height = image9.Height;
+                            Map[i].BackgroundImage.Tag = "stairs_brown1";
+                            break;
+
+                        case 'A':
+                            Map[i].BackgroundImage = image10;
+                            Map[i].Width = image10.Width; ;
+                            Map[i].Height = image10.Height;
+                            Map[i].BackgroundImage.Tag = "stairs_brown2";
+                            break;
+                        case 'B':
+                            Map[i].BackgroundImage = image11;
+                            Map[i].Width = image11.Width; ;
+                            Map[i].Height = image11.Height;
+                            Map[i].BackgroundImage.Tag = "stairs_brown3";
+                            break;
+                    }
 					j++;
 				}
 
@@ -516,7 +811,9 @@ namespace _11
 		{
 
 		}
-	}
+
+
+    }
     
 	//:D
 }
