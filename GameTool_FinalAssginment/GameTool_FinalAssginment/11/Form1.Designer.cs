@@ -40,7 +40,6 @@
 			this.Load_Button = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.SuspendLayout();
 			// 
 			// Button_Stone
@@ -160,21 +159,11 @@
 			this.label4.Text = "CurrentMaterial";
 			this.label4.Click += new System.EventHandler(this.label4_Click);
 			// 
-			// listBox1
-			// 
-			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Location = new System.Drawing.Point(32, 177);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(120, 95);
-			this.listBox1.TabIndex = 18;
-			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(785, 513);
-			this.Controls.Add(this.listBox1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.Load_Button);
@@ -208,7 +197,6 @@
         private System.Windows.Forms.Button Load_Button;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.ListBox listBox1;
 	}
 }
 

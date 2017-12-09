@@ -22,7 +22,9 @@ namespace _11
         TextBox[] txtBox;
         Label[] lbl;
 		List<int> data=new List<int>();
+		
 		List<string> loadData = new List<string>();
+
 		int n = 4;
         int space = 20;
         //-------------------------------------
@@ -377,8 +379,10 @@ namespace _11
 							}
 						}
 					}
-					writer.WriteLine("Row : " + Row);
-					writer.WriteLine("Column : " + Column);
+					writer.WriteLine("Row :");
+					writer.WriteLine(Row);
+					writer.WriteLine("Column :");
+					writer.WriteLine(Column);
 					writer.WriteLine();
 					for (int i = 0; i < data.Count(); i++)
 					{
@@ -398,6 +402,7 @@ namespace _11
 
         private void Load_Button_Click(object sender, EventArgs e)
         {
+			
 			OpenFileDialog openFile = new OpenFileDialog();
 
 			openFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -406,11 +411,12 @@ namespace _11
 			DialogResult result = openFile.ShowDialog();
 			if (result == DialogResult.OK)
 			{
-
+				CleanPictureBox();
+				string line;
 				using (Stream fileStream = openFile.OpenFile())
 				{
 					StreamReader reader = new StreamReader(fileStream);
-					string line;
+					
 
 					while ((line = reader.ReadLine()) != null)
 					{
@@ -419,7 +425,74 @@ namespace _11
 					}
 					reader.Close();
 				}
-				listBox1.DataSource=loadData;
+
+
+				
+				Row = Convert.ToInt32(loadData[1]);
+				Column = Convert.ToInt32(loadData[3]);
+
+				
+
+				Map = new PictureBox[Row * Column];
+				List<int> DataLoad = new List<int>();
+
+				for (int i = 5; i < loadData.Count(); i++)
+				{
+					foreach (char TileNumber in loadData[i])
+					{
+						DataLoad.Add(Convert.ToInt32(TileNumber));
+					}
+				}
+
+				//listBox1.DataSource = DataLoad;
+
+				int j = 0;
+				for (int i = 0; i < Row * Column; i++)
+				{
+					
+					Map[i] = new PictureBox();
+					Map[i].MouseEnter += new EventHandler(ClickTile_over);
+					Map[i].MouseDown += new MouseEventHandler(Handle_MouseDown_OnMap);
+					var image0 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "stone.png");
+					var image1 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass.png");
+					var image2 = Image.FromFile(Application.StartupPath + "\\TilesForNow\\" + "grass_2.png");
+
+					switch (DataLoad[j])
+					{
+						case '0':
+							Map[i].BackgroundImage = image0;
+							Map[i].Width = image0.Width; ;
+							Map[i].Height = image0.Height;
+							Map[i].BackgroundImage.Tag = "stone";
+							break;
+
+						case '1':
+							Map[i].BackgroundImage = image1;
+							Map[i].Width = image1.Width; ;
+							Map[i].Height = image1.Height;
+							Map[i].BackgroundImage.Tag = "grass";
+							break;
+
+						case '2':
+							Map[i].BackgroundImage = image2;
+							Map[i].Width = image2.Width; ;
+							Map[i].Height = image2.Height;
+							Map[i].BackgroundImage.Tag = "grass_2";
+							break;
+					}
+					j++;
+				}
+
+				for (int row = 0; row < Row; ++row)
+				{
+					for (int col = 0; col < Column; col++)
+					{
+						Point point = new Point(200 + 32 * col, 50 + 32 * row);
+						Map[GetIndex(row, col)].Location = point;
+						this.Controls.Add(Map[GetIndex(row, col)]);
+					}
+				}
+
 
 			}
 		}
@@ -445,10 +518,5 @@ namespace _11
 		}
 	}
     
-    //    private void ClickTile_hover(object sender, MouseEventArgs e)
-    //    {
-            
 
-
-    //}
 }
