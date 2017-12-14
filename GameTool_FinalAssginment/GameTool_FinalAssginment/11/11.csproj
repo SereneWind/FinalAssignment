@@ -67,6 +67,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -158,6 +159,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\TilesForNow\stairs_brown3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\fence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\flower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\flower1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\flower2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\flower3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\flower4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\grass3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\grass4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\grass5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\grass6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\grass7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\stone1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\stone1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\stone1_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TilesForNow\stone1_4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
